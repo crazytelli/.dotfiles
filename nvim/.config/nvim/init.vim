@@ -1,4 +1,3 @@
-"Esse texto foi adicionado no diretório ~/.config/nvim/init.vim
 let mapleader = " "
 
 let g:deoplete#enable_at_startup = 1
