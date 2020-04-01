@@ -1,3 +1,4 @@
+"Esse texto foi adicionado no diretório ~/.config/nvim/init.vim
 let mapleader = " "
 
 let g:deoplete#enable_at_startup = 1
@@ -37,7 +38,7 @@ syntax on
 filetype plugin on
 colorscheme gruvbox
 set background=dark
-"set termguicolors
+set termguicolors
 set encoding=utf-8
 set number relativenumber
 set nobackup
