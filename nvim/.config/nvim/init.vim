@@ -6,6 +6,12 @@ if has('win32') || ('win64')
 	let g:python3_host_prog = 'C:/Python38/python.EXE' " Python path
 	call plug#begin('~/AppData/Local/nvim/plugged')
 else
+	if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
+        	echo "Downloading junegunn/vim-plug to manage plugins..."
+        	silent !mkdir -p ~/.config/nvim/autoload/
+        	silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > ~/.config/nvim/autoload/plug.vim
+        	autocmd VimEnter * PlugInstall
+	endif
 	call plug#begin('~/.config/nvim/plugged')
 endif
 
