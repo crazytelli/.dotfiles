@@ -1,5 +1,5 @@
 let mapleader = " "
-
+let g:tex_flavor = 'latex'
 let g:deoplete#enable_at_startup = 1
 
 if has('win32') || ('win64')
