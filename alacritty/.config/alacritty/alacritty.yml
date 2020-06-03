@@ -31,16 +31,16 @@ background_opacity: 1.0
 
 font:
   normal:
-    family: "Ubuntu Mono"
+    family: monospace
     style: Regular
   bold:
-    family: "Ubuntu Mono"
+    family: monospace
     style: Bold
   italic:
-    family: "Ubuntu Mono"
+    family: monospace
     style: Italic
   bold_italic:
-    family: "Ubuntu Mono"
+    family: monospace
     style: Bold Italic
 
   # Point size
