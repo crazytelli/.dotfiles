@@ -1,0 +1,13 @@
+# Basic binds
+
+super + Return
+	$TERMINAL
+Caps_Lock
+	Escape
+super + w
+	$BROWSER
+
+# Restart hotkey damon
+super + shift + x
+	killandnotify "sxhkd" "Config reloaded" && sxhkd &
+
