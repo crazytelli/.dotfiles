@@ -52,6 +52,7 @@ set wildmode=longest,list,full
 "setlocal spell
 "set spelllang=pt_br,en_us
 set splitbelow splitright
+set clipboard+=unnamedplus
 
 "spell check shortcut Ctrl+L
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
