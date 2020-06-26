@@ -1,11 +1,13 @@
 let mapleader = " "
+
 let g:tex_flavor = 'latex'
-let g:deoplete#enable_at_startup = 1
 
 if has('win32') || ('win64')
     let g:python3_host_prog = 'C:/Python38/python.EXE' " Python path
+    set guifontset=Consolas:h12
     call plug#begin('~/AppData/Local/nvim/plugged')
-else
+elseif has('unix')
+    let g:python3_host_prog = '/usr/bin/python' " Python path
     if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
         echo "Downloading junegunn/vim-plug to manage plugins..."
         silent !mkdir -p ~/.config/nvim/autoload/
@@ -15,28 +17,40 @@ else
     call plug#begin('~/.config/nvim/plugged')
 endif
 
-"call plug#begin('~/.config/nvim/plugged')
 Plug 'morhetz/gruvbox'
-Plug 'dylanaraps/wal'
-Plug 'dylanaraps/wal.vim'
-Plug 'bling/vim-airline'
+Plug 'arcticicestudio/nord-vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'lervag/vimtex'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'junegunn/goyo.vim'
-Plug 'jiangmiao/auto-pairs'
+"Plug 'jiangmiao/auto-pairs'
 Plug 'preservim/nerdtree'
 Plug 'preservim/nerdcommenter'
 Plug 'KeitaNakamura/tex-conceal.vim'
-Plug 'Konfekt/FastFold'
 Plug 'ervandew/supertab'
-Plug 'zchee/deoplete-jedi'
+"Plug 'zchee/deoplete-jedi'
 Plug 'sbdchd/neoformat'
-Plug 'davidhalter/jedi-vim'
-Plug 'kovetskiy/sxhkd-vim'
+Plug 'neomake/neomake'
+"Plug 'davidhalter/jedi-vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/goyo.vim'
+Plug 'Konfekt/FastFold'
+Plug 'airblade/vim-gitgutter'
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
+"Plug 'justinmk/vim-sneak'
+Plug 'tpope/vim-surround'
+"Plug 'ThePrimeagen/vim-be-good'
+"Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+"Plug 'dylanaraps/wal'
+"Plug 'skywind3000/asyncrun.vim'
 "Plug 'Chiel92/vim-autoformat'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+let g:deoplete#enable_at_startup = 1
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'PotatoesMaster/i3-vim-syntax'
+Plug 'kovetskiy/sxhkd-vim'
 call plug#end()
 
 syntax on
@@ -45,23 +59,36 @@ colorscheme gruvbox
 set background=dark
 set termguicolors
 set encoding=utf-8
+set fileencoding=utf-8
 set number relativenumber
-set nobackup
 set noswapfile
 set smartindent
 set nowrap
 set tabstop=4 softtabstop=4
 set shiftwidth=4
 set expandtab
+set smartcase
 set incsearch
+set mouse=a
 set wildmode=longest,list,full
-"setlocal spell
-"set spelllang=pt_br,en_us
+setlocal spell
+set spelllang=pt_br,en_us
 set splitbelow splitright
+set colorcolumn=81
+set cursorline
 set clipboard+=unnamedplus
 
 "spell check shortcut Ctrl+L
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+
+let g:airline_theme='gruvbox'
+
+" Vim-gitgutter settings
+let g:gitgutter_enabled = 1
+let g:gitgutter_map_keys = 0
+highlight GitGutterAdd guifg=#009900 ctermfg=Green
+highlight GitGutterChange guifg=#bbbb00 ctermfg=Yellow
+highlight GitGutterDelete guifg=#ff2222 ctermfg=Red
 
 "---------------- UltiSnips setup --------------------------
 " Shortcut to jump forward and backward in tabstop positions
@@ -88,13 +115,50 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " Automatically deletes all trailing whitespace on save.
 autocmd BufWritePre * %s/\s\+$//e
 
+" NERDtree configuration
 map <leader>nd :NERDTreeToggle<CR>
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") &&
+            \b:NERDTree.isTabTree()) | q | endif
 
-nnoremap <leader>ss :source %<CR>
-nnoremap <leader>h :wincmd h<CR>
-nnoremap <leader>j :wincmd j<CR>
-nnoremap <leader>k :wincmd k<CR>
-nnoremap <leader>l :wincmd l<CR>
+let NERDTreeIgnore=['\.aux$', '\.synctex.gz$','\.fdb_latexmk', '\.fls', '\.log',
+            \'\.bbl', '\.docx', '\.pdf', '\.run.xml', '\.bcf', '\.blg', '\.lof',
+            \'\.out', '\.toc','\.xdv$','\.cb$','\.cb2$',]
+
 "após pesquisar algo com (/), (esc)x2 apaga o highlight
 nnoremap <esc><esc> :noh<CR>
+
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+"exits insert mode with 'jj'
+imap jj <esc>
+
+" ajusta tamanho do buffer atual
+nnoremap <silent> <M-j>    :resize -2<CR>
+nnoremap <silent> <M-k>    :resize +2<CR>
+nnoremap <silent> <M-h>    :vertical resize -2<CR>
+nnoremap <silent> <M-l>    :vertical resize +2<CR>
+
+" Move a linha selecionada pra cima ou para baixo
+xnoremap K :move '<-2<CR>gv-gv
+xnoremap J :move '>+1<CR>gv-gv
+
+" Fzf configurations
+" -------------------------- "
+" Launch fzf with CTRL+P.
+nnoremap <silent> <C-p> :FZF -m<CR>
+
+" Navigate tabs easily
+" Go to tab by number
+noremap <leader>1 1gt
+noremap <leader>2 2gt
+noremap <leader>3 3gt
+noremap <leader>4 4gt
+noremap <leader>5 5gt
+noremap <leader>6 6gt
+noremap <leader>7 7gt
+noremap <leader>8 8gt
+noremap <leader>9 9gt
+noremap <leader>0 :tablast<cr>
