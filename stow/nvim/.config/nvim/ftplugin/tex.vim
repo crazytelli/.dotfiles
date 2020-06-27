@@ -24,7 +24,8 @@ set conceallevel=1
 hi Conceal ctermbg=none
 hi Pmenu guibg=gray
 let g:vimtex_quickfix_mode=0
-"let g:vimtex_view_general_viewer = 'SumatraPDF'
+"let g:vimtex_view_general_viewer = 'zathura'
+let g:vimtex_view_method='zathura'
 let g:vimtex_view_general_options
             \ = '-reuse-instance -forward-search @tex @line @pdf'
 let g:vimtex_view_general_options_latexmk = '-reuse-instance'

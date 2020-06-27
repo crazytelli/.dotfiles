@@ -1,6 +1,6 @@
 # Default programs:
 export EDITOR="nvim"
-export TERMINAL="alacritty"
+export TERMINAL="konsole"
 export BROWSER="brave"
 export READER="zathura"
 
