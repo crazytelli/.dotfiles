@@ -55,7 +55,7 @@ call plug#end()
 
 syntax on
 filetype plugin on
-colorscheme gruvbox
+colorscheme nord
 set background=dark
 set termguicolors
 set encoding=utf-8
@@ -81,7 +81,7 @@ set clipboard+=unnamedplus
 "spell check shortcut Ctrl+L
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
-let g:airline_theme='gruvbox'
+let g:airline_theme='nord'
 
 " Vim-gitgutter settings
 let g:gitgutter_enabled = 1
