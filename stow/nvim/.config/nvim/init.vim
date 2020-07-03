@@ -51,6 +51,7 @@ let g:deoplete#enable_at_startup = 1
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'kovetskiy/sxhkd-vim'
+Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
 call plug#end()
 
 syntax on
@@ -162,3 +163,7 @@ noremap <leader>7 7gt
 noremap <leader>8 8gt
 noremap <leader>9 9gt
 noremap <leader>0 :tablast<cr>
+
+" Ranger configuration for image preview inside neovim
+let g:rnvimr_ex_enable = 1
+nmap <space>r :RnvimrToggle<CR>
