@@ -1,7 +1,7 @@
 # Default programs:
 export EDITOR="nvim"
-export TERMINAL="konsole"
+export TERMINAL="alacritty"
 export BROWSER="brave"
 export READER="zathura"
 
-sxhkd &
+#sxhkd &
