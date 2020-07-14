@@ -13,7 +13,7 @@ Utilizar o comando: `stow -nvt ~ *` para realizar o stow em todas as pastas do r
 Pode ser feito também em itens separados como:
 
 ```
-stow -vSt ~ bspwm polybar sxhkd nvim
+stow -vSt ~ i3 polybar nvim alacritty fonts
 ```
 
 ## Flags
@@ -28,5 +28,5 @@ stow -vSt ~ bspwm polybar sxhkd nvim
 
 ```
 cd ~/dotfiles/stow
-stow -vD *
+stow -vDt *
 ```
