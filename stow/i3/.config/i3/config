@@ -10,6 +10,9 @@ exec_always picom -f
 
 exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpapers/restless.jpg
 
+# Instalar autotiling com yay -S autotiling
+exec_always --no-startup-id autotiling
+
 # i3 config file (v4)
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
