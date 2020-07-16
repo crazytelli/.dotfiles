@@ -34,7 +34,7 @@ height = 22
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 0.0
-fixed-center = false
+fixed-center = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -58,9 +58,9 @@ font-3 = Font Awesome 5 Free:pixelsize=12;2
 font-4 = Font Awesome 5 Free Solid:pixelsize=12;2
 font-5 = Font Awesome 5 Brands:pixelsize=12;2
 
-modules-left = i3
-modules-center = xwindow
-modules-right = pacman-updates filesystem xbacklight pulseaudio xkeyboard memory battery date powermenu
+modules-left = i3 xwindow
+modules-center =
+modules-right = pacman-updates filesystem pulseaudio xkeyboard memory battery date powermenu
 
 
 tray-position = right
