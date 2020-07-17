@@ -17,7 +17,7 @@ for_window [class="^.*"] border pixel 2
 gaps inner 15
 gaps outer 10
 
-smart_gaps on
+#smart_gaps on
 #smart_borders on
 
 bindsym $mod+z		gaps outer current plus 5
@@ -144,7 +144,7 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # Assign Workspaces:
 assign [class="Brave"] $ws1
-assign [class="Chromium"] $ws2
+assign [class="Firefox"] $ws2
 for_window [class="Spotify"] move to workspace $ws9
 assign [class="discord"] $ws10
 
