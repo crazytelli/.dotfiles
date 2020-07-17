@@ -57,6 +57,7 @@ font-2 = siji:pixelsize=10;1
 font-3 = Font Awesome 5 Free:pixelsize=12;2
 font-4 = Font Awesome 5 Free Solid:pixelsize=12;2
 font-5 = Font Awesome 5 Brands:pixelsize=12;2
+font-6 = UbuntuMono Nerd Font:pixelsize=12;2
 
 modules-left = i3 xwindow
 modules-center =
@@ -118,6 +119,7 @@ type = internal/fs
 interval = 25
 
 mount-0 = /
+mount-1 = /home
 
 label-mounted =  %free%
 ;label-mounted =  %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
@@ -212,7 +214,7 @@ label = %percentage:2%%
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = " "
+format-prefix = ""
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #4bffdc
 label = %percentage_used%%
@@ -275,11 +277,11 @@ label = %date% %time%
 type = internal/pulseaudio
 
 format-volume = <label-volume> <bar-volume>
-label-volume = VOL %percentage%%
+label-volume = 墳  %percentage%%
 label-volume-foreground = ${root.foreground}
 
-label-muted = 🔇 muted
-label-muted-foreground = #666
+label-muted = 婢
+;label-muted-foreground = #666
 
 bar-volume-width = 10
 bar-volume-foreground-0 = #55aa55
