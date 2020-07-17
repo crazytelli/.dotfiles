@@ -5,7 +5,7 @@
 exec_always --no-startup-id $HOME/.config/polybar/launchpolybar.sh
 exec_always picom -f
 
-exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpapers/restless.jpg
+exec_always --no-startup-id feh --bg-scale --randomize ~/pics/wallpapers/*.jpg
 
 # Instalar autotiling com yay -S autotiling
 exec_always --no-startup-id autotiling
