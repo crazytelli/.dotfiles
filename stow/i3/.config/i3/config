@@ -2,6 +2,7 @@
 
 exec_always --no-startup-id $HOME/.config/polybar/launchpolybar.sh
 exec_always picom -f
+exec_always --no-startup-id optimus-manager-qt
 
 exec_always --no-startup-id feh --bg-scale --randomize ~/pics/wallpapers/*.jpg
 
