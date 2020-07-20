@@ -7,16 +7,16 @@ exec_always --no-startup-id optimus-manager-qt
 exec_always --no-startup-id feh --bg-scale --randomize ~/pics/wallpapers/*.jpg
 
 # Instalar autotiling com yay -S autotiling
-exec_always --no-startup-id autotiling
+#exec_always --no-startup-id autotiling
 
 #Needed for i3-gaps
 hide_edge_borders both
 
 for_window [class="^.*"] border pixel 2
 gaps inner 15
-gaps outer 15
+gaps outer 5
 
-#smart_gaps on
+smart_gaps on
 smart_borders on
 
 #bindsym $mod+z		gaps outer current plus 5
@@ -95,7 +95,6 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
@@ -106,7 +105,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+#bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
