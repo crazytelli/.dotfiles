@@ -19,7 +19,7 @@
 #set Super key
 set $mod Mod4
 
-set $term --no-startup-id termite
+set $term --no-startup-id alacritty
 
 #####################################################################################################################
 #################                          Define the movements keys - variables                    #################
