@@ -8,3 +8,5 @@ map i recolor
 map p print
 map <Right> navigate next
 map <Left> navigate previous
+set selection-clipboard clipboard
+set synctex true
