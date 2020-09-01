@@ -399,6 +399,9 @@ bindsym F12 exec --no-startup-id xfce4-terminal --drop-down; focus
 # ranger minimal file manager
 bindsym $mod+ccedilla exec $term -e ranger
 
+# Joplin
+bindsym $mod+i exec joplin-desktop
+
 # newsboat
 bindsym $mod+n exec $term -e newsboat
 
@@ -498,6 +501,8 @@ bindsym Control+Shift+Print           exec --no-startup-id gnome-screenshot -i
 # Workspace 1 browser related
 #assign [class="Firefox|"] 1
 assign [class="Brave|brave"] 1
+
+assign [class="Joplin|joplin"] 7
 
 # Workspace 2 text editor related
 assign [class="sublime-text|sublime_text|Sublime_text|subl|Subl|subl3|Subl3"] 3
