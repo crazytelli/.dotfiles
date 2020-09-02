@@ -135,14 +135,14 @@ bindsym control+mod1+X mode "$mode_system"
 
 set $mode_system System (k) lock, (l) logout, (u) suspend, (h) hibernate, (r) reboot, (s) shutdown
 mode "$mode_system" {
-    bindsym k exec --no-startup-id ~/.config/i3/scripts/i3exit.sh lock, mode "default"
+  bindsym k exec --no-startup-id ~/.config/i3/scripts/i3exit.sh lock, mode "default"
     bindsym l exec --no-startup-id ~/.config/i3/scripts/i3exit.sh logout, mode "default"
     bindsym u exec --no-startup-id ~/.config/i3/scripts/i3exit.sh suspend, mode "default"
     bindsym h exec --no-startup-id ~/.config/i3/scripts/i3exit.sh hibernate, mode "default"
     bindsym r exec --no-startup-id ~/.config/i3/scripts/i3exit.sh reboot, mode "default"
     bindsym s exec --no-startup-id ~/.config/i3/scripts/i3exit.sh shutdown, mode "default"
 
-    # back to normal: Enter or Escape
+# back to normal: Enter or Escape
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
@@ -179,26 +179,11 @@ bindsym $mod+$down focus down
 bindsym $mod+$up focus up
 bindsym $mod+$right focus right
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
-
 # move focused window
 bindsym $mod+Shift+$left move left
 bindsym $mod+Shift+$down move down
 bindsym $mod+Shift+$up move up
 bindsym $mod+Shift+$right move right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
-
-
-
 
 #####################################################################################################################
 #################                          moving around workspaces                                 #################
@@ -266,31 +251,24 @@ bindsym $mod+a focus parent
 bindsym $mod+r mode "resize"
 
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym $left       resize shrink width 10 px or 10 ppt
-        bindsym $down       resize grow height 10 px or 10 ppt
-        bindsym $up         resize shrink height 10 px or 10 ppt
-        bindsym $right      resize grow width 10 px or 10 ppt
-
-        # same bindings, but for the arrow keys
-        bindsym Left        resize shrink width 10 px or 10 ppt
-        bindsym Down        resize grow height 10 px or 10 ppt
-        bindsym Up          resize shrink height 10 px or 10 ppt
-        bindsym Right       resize grow width 10 px or 10 ppt
-
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+    bindsym $left       resize shrink width 10 px or 10 ppt
+    bindsym $down       resize grow height 10 px or 10 ppt
+    bindsym $up         resize shrink height 10 px or 10 ppt
+    bindsym $right      resize grow width 10 px or 10 ppt
+# back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
 
+bindsym $mod+Shift+y	  exec --no-startup-id i3resize left
+bindsym $mod+Shift+u	  exec --no-startup-id i3resize down
+bindsym $mod+Shift+i    exec --no-startup-id i3resize up
+bindsym $mod+Shift+o		exec --no-startup-id i3resize right
 
-
-
+bindsym $mod+Left       resize shrink width   2 px or 2 ppt
+bindsym $mod+Down       resize grow height    2 px or 2 ppt
+bindsym $mod+Up         resize shrink height  2 px or 2 ppt
+bindsym $mod+Right      resize grow width     2 px or 2 ppt
 
 #####################################################################################################################
 #################                          choose the font                                          #################
@@ -300,12 +278,6 @@ mode "resize" {
 # is used in the bar {} block below.
 # choose your font
 font pango:Noto Mono Regular 13
-
-
-
-
-
-
 
 
 #####################################################################################################################
@@ -321,18 +293,6 @@ exec --no-startup-id dex $HOME/.config/autostart/arcolinux-welcome-app.desktop
 exec_always --no-startup-id autotiling
 
 exec --no-startup-id udiskie -ant
-
-#text-editor
-#exec --no-startup-id geany
-#exec --no-startup-id atom
-
-#file manager
-#exec --no-startup-id thunar
-
-# TRAY APPLICATIONS
-
-# applications that are not installed will not start
-# you may see a wheel - hashtag out things you do not want
 
 #Authentication dialog
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
@@ -356,7 +316,7 @@ exec_always --no-startup-id numlockx on
 #exec --no-startup-id insync start
 
 # volume
-#exec --no-startup-id pasystray
+exec --no-startup-id pasystray
 exec --no-startup-id volumeicon
 
 #variety
@@ -389,8 +349,6 @@ exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
 #####################################################################################################################
 #################                          applications keyboard shortcuts                          #################
 #####################################################################################################################
-
-#not workspace related
 
 # terminal
 bindsym $mod+Return exec $term
@@ -432,13 +390,6 @@ bindsym control+mod1+l exec --no-startup-id arcolinux-logout
 #rofi theme selector
 bindsym control+mod1+r exec --no-startup-id rofi-theme-selector
 
-#arcolinux conflict
-#bindsym $mod+m exec --no-startup-id pragha;focus
-
-#htop
-#arcolinux conflict
-#bindsym $mod+h exec --no-startup-id htop;focus
-
 #pavucontrol
 #arcolinux conflict
 bindsym control+mod1+u exec --no-startup-id pavucontrol
@@ -456,29 +407,17 @@ bindsym --release $mod+Escape exec xkill
 #workspace related
 
 #workspace 1 related
-bindsym $mod+F1 exec --no-startup-id exo-open --launch webbrowser;focus
-#qwerty/azerty conflict with w
-bindsym $mod+w exec --no-startup-id exo-open --launch webbrowser;focus
-bindsym control+mod1+f exec --no-startup-id firefox;focus
-bindsym control+mod1+v exec --no-startup-id vivaldi-stable;focus
-bindsym control+mod1+g exec --no-startup-id chromium;focus
+bindsym $mod+w exec --no-startup-id exo-open --launch webbrowser
 
-#workspace 2 related
-#bindsym $mod+F2 exec --no-startup-id geany;focus
-bindsym $mod+F2 exec --no-startup-id atom;focus
+bindsym control+mod1+f exec --no-startup-id firefox;focus
+bindsym control+mod1+g exec --no-startup-id chromium;focus
 
 #workspace 5 related
 bindsym $mod+F5 exec --no-startup-id meld;focus
 bindsym control+mod1+i exec --no-startup-id nitrogen;focus
 
-#workspace 6 related
-bindsym $mod+F6 exec --no-startup-id vlc;focus
-
-#workspace 7 related
-bindsym $mod+F7 exec --no-startup-id virtualbox;focus
-
 #workspace 8 related
-bindsym $mod+Shift+Return exec --no-startup-id thunar;focus
+bindsym $mod+Shift+Return exec --no-startup-id thunar
 
 #####################################################################################################################
 #################                          screenshots                                              #################
@@ -523,6 +462,7 @@ assign [class="Vmplayer|VirtualBox"]	→ 7
 
 # Workspace 8 file managers
 assign [class="Nemo|Thunar|Caja|nautilus|Nautilus"] 8
+#for_window [class="Nemo|Thunar|Caja|nautilus|Nautilus"] focus
 
 # Worspace 10 - Spotify
 for_window [class="Spotify"] move to workspace 10
@@ -647,14 +587,14 @@ bindsym mod1+Shift+u exec --no-startup-id wal -i $(cat $HOME/.config/variety/wal
 #####################################################################################################################
 
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer -D pulse sset Master '5%+'"
-bindsym XF86AudioLowerVolume exec --no-startup-id "amixer -D pulse sset Master '5%-'"
-bindsym XF86AudioMute exec --no-startup-id "amixer -D pulse set Master toggle"
+  bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer -D pulse sset Master '5%+'"
+  bindsym XF86AudioLowerVolume exec --no-startup-id "amixer -D pulse sset Master '5%-'"
+  bindsym XF86AudioMute exec --no-startup-id "amixer -D pulse set Master toggle"
 #https://github.com/acrisci/playerctl/
-bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
-bindsym XF86AudioNext exec --no-startup-id playerctl next
-bindsym XF86AudioPrev exec --no-startup-id playerctl previous
-bindsym XF86AudioStop exec --no-startup-id playerctl stop
+  bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+  bindsym XF86AudioNext exec --no-startup-id playerctl next
+  bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+  bindsym XF86AudioStop exec --no-startup-id playerctl stop
 #bindsym XF86AudioPlay exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
 #bindsym XF86AudioNext exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
 #bindsym XF86AudioPrev exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
@@ -665,8 +605,8 @@ bindsym XF86AudioStop exec --no-startup-id playerctl stop
 #################                          xbacklight                                               #################
 #####################################################################################################################
 
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 20 # decrease screen brightness
+  bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 20 # increase screen brightness
+  bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 20 # decrease screen brightness
 
 
 
@@ -676,7 +616,7 @@ bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 20 # decrease
 
 
 # bar toggle, hide or show
-bindsym $mod+b bar mode toggle
+  bindsym $mod+b bar mode toggle
 
 
 #####################################################################################################################
@@ -685,14 +625,14 @@ bindsym $mod+b bar mode toggle
 
 
 # Border control
-hide_edge_borders both
+  hide_edge_borders both
 
 #new_window pixel 1
-new_window normal
+  new_window normal
 #new_window none
 
 #new_float pixel 1
-new_float normal
+  new_float normal
 #new_float none
 
 
@@ -703,17 +643,17 @@ new_float normal
 #####################################################################################################################
 
 #Popups during fullscreen mode
-popup_during_fullscreen smart
+  popup_during_fullscreen smart
 
 #####################################################################################################################
 #################                          i3 gaps next                                             #################
 #####################################################################################################################
 
-for_window [class="^.*"] border pixel 2
-gaps inner 5
-gaps outer 5
+  for_window [class="^.*"] border pixel 2
+  gaps inner 5
+  gaps outer 5
 #smart_gaps on
-smart_borders on
+  smart_borders on
 
 
 #####################################################################################################################
@@ -721,9 +661,9 @@ smart_borders on
 #####################################################################################################################
 
 #if you want transparency on non-focused windows, ...
-exec_always --no-startup-id picom --config ~/.config/i3/picom.conf
+  exec_always --no-startup-id picom --config ~/.config/i3/picom.conf
 
-bindsym control+mod1+o exec --no-startup-id ~/.config/i3/scripts/picom-toggle.sh
+  bindsym control+mod1+o exec --no-startup-id ~/.config/i3/scripts/picom-toggle.sh
 
 #####################################################################################################################
 #################                          bar appearance                                           #################
@@ -807,22 +747,22 @@ bindsym control+mod1+o exec --no-startup-id ~/.config/i3/scripts/picom-toggle.sh
 #
 #     }
 #
-    ##STOP THEMING BAR
+##STOP THEMING BAR
 
-    ##START THEMING WM
-    #Theme name : ArcoLinux Default
+##START THEMING WM
+#Theme name : ArcoLinux Default
 
-    # Window color settings
-    # class                 border  backgr. text    indicator
-    client.focused          #6790EB #6790EB #e5e5e5 #6790EB
-    client.unfocused        #222222 #222222 #aaaaaa #222222
-    client.focused_inactive #222222 #222222 #a9a9a9 #222222
-    client.placeholder      #222222 #222222 #aaaaaa #222222
-    client.urgent           #d42121 #d42121 #f7f7f7 #d42121
+# Window color settings
+# class                 border  backgr. text    indicator
+  client.focused          #6790EB #6790EB #e5e5e5 #6790EB
+  client.unfocused        #222222 #222222 #aaaaaa #222222
+  client.focused_inactive #222222 #222222 #a9a9a9 #222222
+  client.placeholder      #222222 #222222 #aaaaaa #222222
+  client.urgent           #d42121 #d42121 #f7f7f7 #d42121
 
-    client.background       #242424
+  client.background       #242424
 
-    ##STOP THEMING WM
+##STOP THEMING WM
 
 #####################################################################################################################
 #####################################################################################################################
@@ -845,11 +785,11 @@ bindsym control+mod1+o exec --no-startup-id ~/.config/i3/scripts/picom-toggle.sh
 # NOT USED
 
 # move the currently focused window to the scratchpad
- #bindsym Mod1+Shift+minus move scratchpad
+#bindsym Mod1+Shift+minus move scratchpad
 
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
- #bindsym Mod1+minus scratchpad show
+#bindsym Mod1+minus scratchpad show
 
 #####################################################################################################################
 #################                          mouse settings in i3                                     #################

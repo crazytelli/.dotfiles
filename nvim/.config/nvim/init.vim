@@ -7,6 +7,7 @@ source $HOME/.config/nvim/general/plugins.vim
 source $HOME/.config/nvim/general/themes.vim
 source $HOME/.config/nvim/general/configs.vim
 source $HOME/.config/nvim/general/ultisnips.vim
+source $HOME/.config/nvim/general/vimtex.vim
 source $HOME/.config/nvim/general/supertab.vim
 source $HOME/.config/nvim/general/nerdtree.vim
 source $HOME/.config/nvim/general/vim-hexokinase.vim

@@ -5,8 +5,10 @@
     "html",
     "yaml",
     "json",
-    "python"
+    "python",
+    "latex"
   ],
+  // Python settings
   "python.linting.enabled": true,
   "python.linting.pylintEnabled": true,
   "snippets.ultisnips.directories": [

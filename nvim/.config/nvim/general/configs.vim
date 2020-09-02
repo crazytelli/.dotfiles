@@ -34,7 +34,7 @@ set spellfile=~/.config/nvim/spell/pt.utf-8.add
 set spelllang=en,pt
 
 let mapleader = " "
-let g:tex_flavor = 'latex'
+let maplocalleader = ","
 
 " Ativa spellcheck para português com leader + o. O de 'ortografia'
 "map <leader>o :setlocal spell! spelllang=en,pt<CR>
@@ -42,12 +42,6 @@ map <leader>o :setlocal spell!<CR>
 
 "spell check shortcut Ctrl+L
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
-
-" LaTeX Conceal. plugin KeitaNakamura/tex-conceal.vim
-" Quase certeza de que essa config não tem nada a ver com o plugin
-highlight Conceal guibg=NONE ctermbg=NONE
-set conceallevel=2
-let g:tex_conceal="abdgm"
 
 "Disables automatic commenting on newline:
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
