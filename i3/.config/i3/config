@@ -467,6 +467,9 @@ assign [class="Nemo|Thunar|Caja|nautilus|Nautilus"] 8
 # Worspace 10 - Spotify
 for_window [class="Spotify"] move to workspace 10
 
+# Evince Print Screen
+for_window [title="^Print$"] floating disable
+
 
 #####################################################################################################################
 #################                          floating or tiled                                        #################
