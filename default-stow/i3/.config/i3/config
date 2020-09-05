@@ -440,6 +440,7 @@ bindsym Control+Shift+Print           exec --no-startup-id gnome-screenshot -i
 # Workspace 1 browser related
 #assign [class="Firefox|"] 1
 assign [class="Brave|brave"] 1
+assign [class="discord|Discord"] 9
 
 assign [class="Joplin|joplin"] 7
 
@@ -638,13 +639,6 @@ bindsym mod1+Shift+u exec --no-startup-id wal -i $(cat $HOME/.config/variety/wal
   new_float normal
 #new_float none
 
-
-
-
-#####################################################################################################################
-#################                          Popups  control                                          #################
-#####################################################################################################################
-
 #Popups during fullscreen mode
   popup_during_fullscreen smart
 
@@ -653,9 +647,9 @@ bindsym mod1+Shift+u exec --no-startup-id wal -i $(cat $HOME/.config/variety/wal
 #####################################################################################################################
 
   for_window [class="^.*"] border pixel 2
-  gaps inner 5
+  gaps inner 10
   gaps outer 5
-  smart_gaps on
+  #smart_gaps on
   smart_borders on
 
 

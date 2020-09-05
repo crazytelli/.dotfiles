@@ -91,19 +91,11 @@ height = 30
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-; Background gradient (vertical steps)
-;   background-[0-9]+ = #aarrggbb
-;background-0 =
-
 radius = 0.0
 line-size = 2
 line-color = #000000
 
 border-size = 0
-;border-left-size = 25
-;border-right-size = 25
-;border-top-size = 0
-;border-bottom-size = 25
 border-color = #000000
 
 padding-left = 1
@@ -114,17 +106,16 @@ module-margin-right = 3
 
 ;https://github.com/jaagr/polybar/wiki/Fonts
 font-0 = "Noto Sans:size=10;0"
-font-1 = "FontAwesome:size=10;0"
+font-1 = "FontAwesome:size=12;0"
 font-2 = "Noto Sans Mono:size=10;0"
 font-3 = "FuraCode Nerd Font:style=Regular:size=14;2"
+font-4 = "Font Awesome 5 Brands:size=12;2"
 
 modules-left = i3 xwindow
-modules-center = spotify1
-modules-right = xbacklight filesystem pavolume battery date
+modules-center =
+modules-right = spotify discord filesystem pavolume battery date
 
 separator = |
-
-;dim-value = 1.0
 
 tray-detached = false
 tray-offset-x = 0
@@ -134,10 +125,6 @@ tray-maxsize = 20
 tray-scale = 1.0
 tray-position = right
 tray-background = ${colors.background}
-
-#i3: Make the bar appear below windows
-;wm-restack = i3
-;override-redirect = true
 
 ; Enable support for inter-process messaging
 ; See the Messaging wiki page for more details.
@@ -154,13 +141,9 @@ double-click-left =
 double-click-middle =
 double-click-right =
 
-; Requires polybar to be built with xcursor support (xcb-util-cursor)
-; Possible values are:
-; - default   : The default pointer as before, can also be an empty string (default)
-; - pointer   : Typically in the form of a hand
-; - ns-resize : Up and down arrows, can be used to indicate scrolling
 cursor-click =
 cursor-scroll =
+locale = pt_BR.UTF-8
 
 
 ################################################################################
@@ -569,18 +552,19 @@ fuzzy-match = false
 ;                              
 
 ; Nerd Font Icons
-;           ﱕ   ﱦ  ﭮ
+;           ﱕ   ﱦ 
 
 
+;ws-icon-0 = 1;
 ws-icon-0 = 1;
-ws-icon-1 = 2;
-ws-icon-2 = 3;ﱦ
+ws-icon-1 = 2;
+ws-icon-2 = 3;
 ws-icon-3 = 4;
 ws-icon-4 = 5;
 ws-icon-5 = 6;
 ws-icon-6 = 7;
 ws-icon-7 = 8;
-ws-icon-8 = 9;
+ws-icon-8 = 9;
 ws-icon-9 = 10;
 ws-icon-default = " "
 
@@ -787,7 +771,6 @@ bar-empty = ─
 [module/battery]
 ; Para mostrar a bateria e o adaptador do notebook usar o comando:
 ; ls -1 /sys/class/power_supply/
-;https://github.com/jaagr/polybar/wiki/Module:-battery
 type = internal/battery
 battery = BAT1
 adapter = ACAD
@@ -797,18 +780,17 @@ format-charging = <animation-charging> <label-charging>
 label-charging =  %percentage%%
 format-charging-foreground = ${colors.foreground}
 format-charging-background = ${colors.background}
-format-charging-underline = #a3c725
+;format-charging-underline = #a3c725
 
-format-discharging = <ramp-capacity> <label-discharging>
+format-discharging = <animation-discharging> <label-discharging>
 label-discharging =  %percentage%%
-format-discharging-underline = #bd2c40
+;format-discharging-underline = #bd2c40
 format-discharging-foreground = ${colors.foreground}
 format-discharging-background = ${colors.background}
 
 format-full-prefix = " "
-;label-full = 
 format-full-prefix-foreground = ${colors.foreground}
-format-full-underline = #3EC13F
+;format-full-underline = #3EC13F
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 
@@ -817,8 +799,6 @@ ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-4 = 
-ramp-capacity-foreground = #c7ae25
-;ramp-capacity-foreground = ${colors.foreground}
 
 animation-charging-0 = 
 animation-charging-1 = 
@@ -827,6 +807,14 @@ animation-charging-3 = 
 animation-charging-4 = 
 animation-charging-foreground = #a3c725
 animation-charging-framerate = 750
+
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-3 = 
+animation-discharging-4 = 
+animation-discharging-foreground = #c23127
+animation-discharging-framerate = 750
 
 ################################################################################
 
@@ -923,7 +911,7 @@ type = internal/date
 interval = 5
 ; See "http://en.cppreference.com/w/cpp/io/manip/put_time" for details on how to format the date string
 ; NOTE: if you want to use syntax tags here you need to use %%{...}
-date = "%a %d/%m  %t"
+date = "%A %d/%m %t"
 ;date-alt = "%x"
 time = %H:%M
 ;time-alt = %H:%M
@@ -1026,7 +1014,7 @@ spacing = 4
 format-mounted = <label-mounted>
 format-mounted-foreground = ${colors.foreground}
 format-mounted-background = ${colors.background}
-format-mounted-underline = #fe0000
+;format-mounted-underline = #fe0000
 
 
 ; Available tokens:
@@ -1270,7 +1258,7 @@ click-right = exec pavucontrol
 click-left = ~/.config/polybar/scripts/pavolume.sh --togmute
 scroll-up = ~/.config/polybar/scripts/pavolume.sh --up
 scroll-down = ~/.config/polybar/scripts/pavolume.sh --down
-format-underline = #FFBB00
+;format-underline = #FFBB00
 ;format-underline = #3EC13F
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
@@ -1305,14 +1293,16 @@ format-background = ${colors.background}
 
 ################################################################################
 
-[module/spotify1]
+[module/spotify]
 ;https://github.com/NicholasFeldman/dotfiles/blob/master/polybar/.config/polybar/spotify.sh
 type = custom/script
-exec = ~/.config/polybar/scripts/spotify1.sh
+exec = ~/.config/polybar/scripts/spotify.sh
 interval = 1
 click-left = playerctl -p spotify play-pause
 click-right = playerctl -p spotify next
-double-click-right = playerctl -p spotify previous
+scroll-up = playerctl -p spotify next
+scroll-down = playerctl -p spotify previous
+
 
 ;format = <label>
 format-foreground = ${colors.foreground}
