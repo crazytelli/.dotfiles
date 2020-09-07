@@ -113,7 +113,7 @@ font-4 = "Font Awesome 5 Brands:size=12;2"
 
 modules-left = i3 xwindow
 modules-center =
-modules-right = spotify discord filesystem pavolume battery date
+modules-right = spotify filesystem pavolume battery date
 
 separator = |
 
