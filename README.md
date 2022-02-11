@@ -1,11 +1,26 @@
-# Configurações gerenciadas com GNU/stow
+# Dotfiles management with GNU/stow
 
-## Ativado as configurações
+## How to install the configuration files with stow
 
-```
-cd ~/.dotfiles/default-stow
+1. First, make sure to have stow installed:
 
-stow -t ~ *
-```
+`sudo pacman -Sy stow`
 
-em que a flag `-t` representa "target directory"
+2. Navigate to the stow directory:
+
+`cd ~/.dotfiles/default-stow`
+
+3. To stow a specific config, such as the neovim:
+
+`stow -vt ~ nvim`
+
+4. To stow everything:
+
+`stow -vt ~ *`
+
+5. Finally: to remove the config for stowed programs:
+
+`stow -vDt ~ *`
+
+
+
