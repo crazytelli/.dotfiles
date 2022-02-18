@@ -1,4 +1,5 @@
 clear lock
+clear control
 keycode   8 =
 keycode   9 = Escape NoSymbol Escape
 keycode  10 = 1 exclam 1 exclam onesuperior exclamdown onesuperior
@@ -28,6 +29,7 @@ keycode  33 = p P p P thorn THORN thorn
 keycode  34 = dead_acute dead_grave dead_acute dead_grave acute grave acute
 keycode  35 = bracketleft braceleft bracketleft braceleft ordfeminine dead_macron ordfeminine
 keycode  36 = Return NoSymbol Return
+add control = Control_L Control_R
 keycode  37 = Control_L NoSymbol Control_L
 keycode  38 = a A a A ae AE ae
 keycode  39 = s S s S ssharp U1E9E ssharp
