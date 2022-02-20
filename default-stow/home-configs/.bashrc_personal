@@ -14,8 +14,9 @@ alias pacq='pacman -Q | grep'
 alias pacs='pacman -Ss '
 
 # files and configs shortcuts
-alias vim="nvim"
+alias vim="lvim"
 alias stow="stow -v"
+alias sxiv="nsxiv"
 # alias cfi="${EDITOR} $HOME/.config/i3/config"
 # alias cfp="${EDITOR} $HOME/.config/polybar/config"
 # alias cdp="cd $HOME/.config/polybar"
