@@ -14,11 +14,12 @@ alias pacq='pacman -Q | grep'
 alias pacs='pacman -Ss '
 
 # files and configs shortcuts
-alias stow="stow -v"
+alias stow="stow -vt ~"
 alias sxiv="nsxiv"
+alias cq="${EDITOR} $HOME/.config/qtile/config.py"
+alias dots="cd $HOME/.dotfiles && ls"
 # alias cfi="${EDITOR} $HOME/.config/i3/config"
 # alias cfp="${EDITOR} $HOME/.config/polybar/config"
 # alias cdp="cd $HOME/.config/polybar"
 # alias cfn="${EDITOR} $HOME/.config/nvim/init.vim"
 # alias cdn="cd $HOME/.config/nvim/ && ls"
-# alias dots="cd $HOME/.dotfiles && ls"
