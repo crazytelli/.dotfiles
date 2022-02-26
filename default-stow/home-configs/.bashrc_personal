@@ -23,3 +23,5 @@ alias dots="cd $HOME/.dotfiles && ls"
 # alias cdp="cd $HOME/.config/polybar"
 # alias cfn="${EDITOR} $HOME/.config/nvim/init.vim"
 # alias cdn="cd $HOME/.config/nvim/ && ls"
+
+(cat ~/.cache/wal/sequences &)
