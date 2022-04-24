@@ -112,13 +112,13 @@ keys = [
     Key(
         [],
         "XF86MonBrightnessUp",
-        lazy.spawn("xbacklight -inc 20"),
+        lazy.spawn("xbacklight -inc 10"),
         desc="Increase display brightness",
     ),
     Key(
         [],
         "XF86MonBrightnessDown",
-        lazy.spawn("xbacklight -dec 20"),
+        lazy.spawn("xbacklight -dec 10"),
         desc="Increase display brightness",
     ),
     # Launch apps key bindings:
@@ -232,6 +232,7 @@ screens = [
                     },
                     background=colors[13],
                 ),
+                widget.Wlan(),
                 widget.Systray(),
                 # widget.TextBox(
                 #    text="",
