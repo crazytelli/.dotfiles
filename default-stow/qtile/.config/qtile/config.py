@@ -3,7 +3,7 @@ from typing import List  # noqa: F401
 from libqtile import bar, layout, widget, qtile
 
 # from libqtile import layout
-from libqtile.config import Click, Drag, Group, Key, Match, Screen
+from libqtile.config import Click, Drag, Group, Key, KeyChord, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 from libqtile import hook
@@ -128,12 +128,27 @@ keys = [
         lazy.spawn(f"{terminal} -e ranger"),
         desc="Launches Ranger file manager",
     ),
-    Key(
-        [mod, "shift"], "p", lazy.spawn("pcmanfm"), desc="Launches pcmanfm file manager"
-    ),
-    Key(
-        [], 
-        "XF86Explorer", lazy.spawn("pcmanfm"), desc="Launches pcmanfm file manager"
+    # Key Chord application launcher with mod + k
+    KeyChord(
+        [mod],
+        "k",
+        [
+            Key(
+                [],
+                "b",
+                lazy.spawn("brave"),
+            ),
+            Key(
+                [],
+                "f",
+                lazy.spawn("pcmanfm"),
+            ),
+            Key(
+                [],
+                "q",
+                lazy.spawn("qbittorrent"),
+            ),
+        ],
     ),
 ]
 
@@ -220,7 +235,12 @@ screens = [
                 widget.Prompt(font="Hack Nerd Font Bold"),
                 widget.Spacer(length=10),
                 widget.WindowName(font="Hack Nerd Font Bold"),
-                # widget.Chord( chords_colors={ "launch": (colors[3],colors[10]), }, name_transform=lambda name: name.upper(),),
+                widget.Chord(
+                    chords_colors={
+                        "launch": (colors[3], colors[10]),
+                    },
+                    name_transform=lambda name: name.upper(),
+                ),
                 widget.CurrentLayoutIcon(scale=0.65),
                 widget.CheckUpdates(
                     update_interval=1800,
@@ -232,7 +252,14 @@ screens = [
                     },
                     background=colors[13],
                 ),
-                widget.Wlan(),
+                # widget.Wlan(),
+                widget.CryptoTicker(
+                    crypto="BTC",
+                    font="Hack Nerd Font Bold",
+                    currency="USD",
+                    symbol="$",
+                    update_interval="600",
+                ),
                 widget.Systray(),
                 # widget.TextBox(
                 #    text="",
