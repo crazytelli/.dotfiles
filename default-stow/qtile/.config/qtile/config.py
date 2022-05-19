@@ -130,8 +130,8 @@ keys = [
     ),
     # Key Chord application launcher with mod + k
     KeyChord(
-        [mod],
-        "k",
+        ["control"],
+        "e",
         [
             Key(
                 [],
@@ -142,6 +142,11 @@ keys = [
                 [],
                 "f",
                 lazy.spawn("pcmanfm"),
+            ),
+            Key(
+                [],
+                "k",
+                lazy.spawn("keepassxc"),
             ),
             Key(
                 [],
@@ -253,13 +258,13 @@ screens = [
                     background=colors[13],
                 ),
                 # widget.Wlan(),
-                widget.CryptoTicker(
-                    crypto="BTC",
-                    font="Hack Nerd Font Bold",
-                    currency="USD",
-                    symbol="$",
-                    update_interval="600",
-                ),
+                # widget.CryptoTicker(
+                #     crypto="BTC",
+                #     font="Hack Nerd Font Bold",
+                #     currency="USD",
+                #     symbol="$",
+                #     update_interval="600",
+                # ),
                 widget.Systray(),
                 # widget.TextBox(
                 #    text="",
