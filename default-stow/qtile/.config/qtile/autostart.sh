@@ -18,7 +18,7 @@ feh --bg-scale /usr/share/backgrounds/archlinux/wave.png
 picom & disown # --experimental-backends --vsync should prevent screen tearing on most setups if needed
 
 # Network Manager
-# nm-applet & disown
+nm-applet & disown
 
 # Blueman - bluetooth applet
 blueman-applet & disown
