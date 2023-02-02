@@ -4,3 +4,5 @@
 battery_charging = ['󱟦', '󱟧', '󰂏', '󰂐']
 battery_discharging = ['󱟤', '󱟥', '󰂌', '󰂍']
 battery_full = ['󱟢', '󱟣']
+battery_list = ["", "", "", "", "", "", "", "", "", "", ""]
+
