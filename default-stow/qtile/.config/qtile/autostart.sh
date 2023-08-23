@@ -23,7 +23,7 @@ nm-applet & disown
 # Blueman - bluetooth applet
 blueman-applet & disown
 
-udiskie -ns --file-manager=$FILEMANAGER & disown
+udiskie -ns &
 
 # Low battery notifier
 ~/.config/qtile/scripts/check_battery.sh & disown

@@ -188,7 +188,7 @@ for i in groups:
 def init_layout_theme():
     return {
         "border_width": 3,
-        "margin": 0,
+        "margin": 4,
         "border_focus": colors[1],
         "border_normal": colors[13],
     }
