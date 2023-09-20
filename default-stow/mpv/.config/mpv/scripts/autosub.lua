@@ -3,7 +3,7 @@
 --=============================================================================
 --          This script uses Subliminal to download subtitles,
 --          so make sure to specify your system's Subliminal location below:
-local subliminal = '/home/crazytelli/.local/bin/subliminal'
+local subliminal = '/home/loca/.miniconda/envs/subliminal-env/bin/subliminal'
 --=============================================================================
 -->>    SUBTITLE LANGUAGE:
 --=============================================================================
@@ -14,13 +14,13 @@ local languages = {
 --          If subtitles are found for the first language,
 --          other languages will NOT be downloaded,
 --          so put your preferred language first:
+            { 'Portuguese', 'pt', 'por' },
             { 'English', 'en', 'eng' },
 --            { 'Dutch', 'nl', 'dut' },
 --          { 'Spanish', 'es', 'spa' },
 --          { 'French', 'fr', 'fre' },
 --          { 'German', 'de', 'ger' },
 --          { 'Italian', 'it', 'ita' },
-          { 'Portuguese', 'pt', 'por' },
 --          { 'Polish', 'pl', 'pol' },
 --          { 'Russian', 'ru', 'rus' },
 --          { 'Chinese', 'zh', 'chi' },
