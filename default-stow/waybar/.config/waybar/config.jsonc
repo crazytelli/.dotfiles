@@ -7,7 +7,7 @@
     "gtk-layer-shell": true,
     "height": 50,
     "modules-left": ["hyprland/workspaces"],
-    "modules-center": ["hyprland/window"],
+    /*"modules-center": ["hyprland/window"],*/
     "modules-right": ["backlight","pulseaudio","pulseaudio#microphone", "battery", "tray", "clock"],
     "hyprland/window": {
         "format": "{}"
