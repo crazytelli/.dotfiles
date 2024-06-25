@@ -5,7 +5,7 @@
     "exclusive": true,
     "passthrough": false,
     "gtk-layer-shell": true,
-    "height": 50,
+    "height": 59,
     "modules-left": ["hyprland/workspaces"],
     /*"modules-center": ["hyprland/window"],*/
     "modules-right": ["backlight","pulseaudio","pulseaudio#microphone", "battery", "tray", "clock"],
@@ -17,7 +17,7 @@
         "disable-scroll": true,
         "all-outputs": true,
         "on-click": "activate",
-        "persistent_workspaces": {
+        "persistent-workspaces": {
 /*             "1": [],
             "2": [],
             "3": [],
