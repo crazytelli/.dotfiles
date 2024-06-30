@@ -28,4 +28,5 @@ udiskie -ns &
 # Low battery notifier
 ~/.config/qtile/scripts/check_battery.sh & disown
 
-# /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & disown # start polkit agent from GNOME
+# start polkit agent from GNOME
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & disown 
