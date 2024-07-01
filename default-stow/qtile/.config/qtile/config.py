@@ -146,7 +146,7 @@ keys = [
             Key(
                 [],
                 "p",
-                lazy.spawn("pcmanfm"),
+                lazy.spawn("thunar"),
             ),
             Key(
                 [],
@@ -156,7 +156,7 @@ keys = [
             Key(
                 [],
                 "o",
-                lazy.spawn("flatpak run md.obsidian.Obsidian"),
+                lazy.spawn("obsidian"),
             ),
         ],
     ),
