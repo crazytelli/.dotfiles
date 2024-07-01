@@ -23,6 +23,8 @@ nm-applet & disown
 # Blueman - bluetooth applet
 blueman-applet & disown
 
+dunst &
+
 udiskie -ns &
 
 # Low battery notifier
