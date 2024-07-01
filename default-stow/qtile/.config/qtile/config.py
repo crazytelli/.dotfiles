@@ -261,18 +261,15 @@ screens = [
                     },
                     name_transform=lambda name: name.upper(),
                 ),
-                widget.CheckUpdates(
-                    update_interval=1800,
-                    distro="Arch_yay",
-                    display_format="{updates} Updates",
-                    foreground=colors[4],
-                    mouse_callbacks={
-                        "Button1": lambda: qtile.cmd_spawn(terminal + " -e yay -Syu")
-                    },
-                    background=colors[13],
-                ),
                 widget.Chord(),
                 widget.Systray(icon_size=24, padding=5),
+                widget.DF(warn_space=40,visible_on_warn=False, 
+                    font="Hack Nerd Font Bold",
+                    fontsize=18,
+                    format=' :({uf}{m}|{r:.0f}%)',
+                    foreground=colors[4],
+                    warn_color=colors[3],
+                ),
                 widget.Spacer(length=5),
                 widget.Memory(
                     font="Hack Nerd Font Bold",
