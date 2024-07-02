@@ -36,63 +36,45 @@ mod = "mod4"
 terminal = "kitty"
 
 keys = [
-    # Switch between windows
-    Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
-    Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
-    Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
-    Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
-    Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
-    Key( [mod, "shift"], "h", lazy.layout.shuffle_left().when(layout=['columns']), desc="Move window to the left"),
-    Key([mod, "shift"], "l", lazy.layout.shuffle_right().when(layout=['columns']), desc="Move window to the right",),
-    Key([mod, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
-    Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
-
-    # Grow windows. If current window is on the edge of screen and direction
-    # will be to screen edge - window would shrink.
-    Key([mod, "control"], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
-    Key( [mod, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
-    Key([mod, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
-    Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
-    Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
-    Key([mod], "b", lazy.hide_show_bar(), desc="Toggle hide/show the bar"),
-    Key( [mod, "shift"], "f", lazy.window.toggle_floating(), desc="Toggle floating",),
-
-    # MonadTall default bindings
-    # Key([mod, "shift"], "h", lazy.layout.swap_left().when(layout=['monadtall'])),
-    # Key([mod, "shift"], "l", lazy.layout.swap_right().when(layout=['monadtall'])),
-    Key([mod, "shift"], "j", lazy.layout.shuffle_down().when(layout=['monadtall'])),
-    Key([mod, "shift"], "k", lazy.layout.shuffle_up().when(layout=['monadtall'])),
-    Key([mod], "i", lazy.layout.grow().when(layout=['monadtall'])),
-    Key([mod], "d", lazy.layout.shrink().when(layout=['monadtall'])),
-    Key([mod], "n", lazy.layout.reset().when(layout=['monadtall'])),
-    Key([mod], "o", lazy.layout.maximize().when(layout=['monadtall'])),
-    Key([mod, "shift"], "space", lazy.layout.flip().when(layout=['monadtall'])),
-
-    # Toggle between split and unsplit sides of stack.
-    # Split = all windows displayed
-    # Unsplit = 1 window displayed, like Max layout, but still with
-    # multiple stack panes
-    # Key(
-    #     [mod, "shift"],
-    #     "Return",
-    #     lazy.layout.toggle_split(),
-    #     desc="Toggle between split and unsplit sides of stack",
-    # ),
-
+    
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
-    # Toggle between different layouts as defined below
-    Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
-    Key([mod], "f", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen"),
     Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
-    Key([mod], "r", lazy.spawn("rofi -show drun"), desc="spawn rofi"),
-    Key(
-        [mod, "shift"],
-        "r",
-        lazy.spawncmd(),
-        desc="Spawn a command using a dmenu prompt widget",
-    ),
+    Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
+    Key([mod], "f", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen"),
+    Key([mod], "d", lazy.spawn("rofi -show drun"), desc="spawn rofi"),
+    #Key( [mod, "shift"], "d", lazy.spawncmd(), desc="Spawn a command using a dmenu prompt widget"),
+
+    # Switch between windows
+    Key( [mod], "h", lazy.layout.left(), desc="Move focus to left"),
+    Key( [mod], "l", lazy.layout.right(), desc="Move focus to right"),
+    Key( [mod], "j", lazy.layout.down(), desc="Move focus down"),
+    Key( [mod], "k", lazy.layout.up(), desc="Move focus up"),
+    Key( [mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
+
+    # Move windows around
+    Key( [mod, "shift" ], "h", lazy.layout.shuffle_left().when(layout=['columns']), desc="Move window to the left"),
+    Key( [mod, "shift" ], "l", lazy.layout.shuffle_right().when(layout=['columns']), desc="Move window to the right",),
+    Key( [mod, "shift" ], "k", lazy.layout.shuffle_down(), desc="Move window down"),
+    Key( [mod, "shift" ], "j", lazy.layout.shuffle_up(), desc="Move window up") ,
+    Key( [mod, "shift" ], "n", lazy.screen.next_group(skip_empty=True), desc="Cycle to next workspace "),
+    Key( [mod, "shift" ], "b", lazy.screen.prev_group(skip_empty=True), desc="Cycle to previous workspace ",),
+    Key( [mod, "shift"], "f", lazy.window.toggle_floating(), desc="Toggle floating",),
+
+    # Tile layout specific cofiguration
+    #Key( [mod, "shift" ], "r", lazy.layout.reset().when(layout=['tile']), desc = "Increases the size of master when in Tile Layout"),
+    Key( [mod, "shift" ], "i", lazy.layout.increase_ratio().when(layout=['tile']), desc = "Increases the ratio of master when in Tile Layout"),
+    Key( [mod, "shift" ], "d", lazy.layout.decrease_ratio().when(layout=['tile']), desc = "Decreases the ratio of master when in Tile Layout"),
+    Key( [mod, "shift" ], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
+
+    # Grow windows. If current window is on the edge of screen and direction
+    # will be to screen edge - window would shrink.
+    Key( [mod, "control"], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
+    Key( [mod, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
+    Key( [mod, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
+    Key( [mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
+    Key( [mod], "b", lazy.hide_show_bar(), desc="Toggle hide/show the bar"),
     Key(
         [mod],
         "x",
@@ -109,18 +91,21 @@ keys = [
     Key([], "XF86AudioRaiseVolume", lazy.spawn("pamixer -i 5")),
     Key([], "XF86AudioLowerVolume", lazy.spawn("pamixer -d 5")),
     Key([], "XF86AudioMute", lazy.spawn("pamixer -t")),
+
     Key(
         [],
         "XF86MonBrightnessUp",
-        lazy.spawn("xbacklight -inc 10"),
+        lazy.spawn("brightnessctl set +10%"),
         desc="Increase display brightness",
     ),
+
     Key(
         [],
         "XF86MonBrightnessDown",
-        lazy.spawn("xbacklight -dec 10"),
-        desc="Increase display brightness",
+        lazy.spawn("brightnessctl set 10%-"),
+        desc="Decrease display brightness",
     ),
+
     # Launch apps key bindings:
     Key(
         [mod, "shift"],
@@ -128,7 +113,9 @@ keys = [
         lazy.spawn(f"{terminal} -e ranger"),
         desc="Launches Ranger file manager",
     ),
+
     # Key Chord application launcher with alt + k
+    
     KeyChord(
         ["mod1"],
         "k",
@@ -200,11 +187,9 @@ layout_theme = init_layout_theme()
 # Layouts config
 layouts = [
     #layout.Columns(**layout_theme),
-    layout.MonadTall(**layout_theme, align=layout.MonadTall._left,
-),
-    layout.Max(
-        border_width = 0, 
-        margin = 0),
+    #layout.MonadTall(**layout_theme, align=layout.MonadTall._left),
+    layout.Tile(**layout_theme), 
+    layout.Max( border_width = 0, margin = 0), 
 ]
 
 widget_defaults = dict(
@@ -267,7 +252,7 @@ screens = [
                     font="Hack Nerd Font Bold",
                     fontsize=18,
                     format=' :({uf}{m}|{r:.0f}%)',
-                    foreground=colors[4],
+                    foreground=colors[5],
                     warn_color=colors[3],
                 ),
                 widget.Spacer(length=5),
@@ -275,7 +260,7 @@ screens = [
                     font="Hack Nerd Font Bold",
                     fontsize=18,
                     # background=colors[13],
-                    foreground=colors[6],
+                    foreground=colors[1],
                     format="󰍛:{MemUsed:.0f} MB",
                     padding_y=4,
                 ),
@@ -305,7 +290,7 @@ screens = [
                     # hide_threshold=0.8,
                 ),
             ],
-            24,
+            30,
             background=colors[13],
             # opacity=0.75,
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
