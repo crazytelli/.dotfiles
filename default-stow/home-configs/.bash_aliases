@@ -6,6 +6,9 @@
 # 
 # and then run `source ~/.bashrc`
 
+# Source .bash_aliases if it exists
+#[ -f "$HOME/.bash_aliases" ] && source "$HOME/.bash_aliases"
+
 alias ls="ls -hN --color=auto --group-directories-first"
 alias grep="grep --color=auto"
 
@@ -24,14 +27,5 @@ alias stow="stow -vt ~"
 alias sxiv="nsxiv"
 alias cq="${EDITOR} $HOME/.config/qtile/config.py"
 alias dots="clear && cd $HOME/.dotfiles/default-stow && ls"
-alias batstat="cat /sys/class/power_supply/BAT1/status"
-alias vpn-up="wg-quick up archlinux-BR-21"
-alias vpn-down="wg-quick down archlinux-BR-21"
-
-# alias cfi="${EDITOR} $HOME/.config/i3/config"
-# alias cfp="${EDITOR} $HOME/.config/polybar/config"
-# alias cdp="cd $HOME/.config/polybar"
-# alias cfn="${EDITOR} $HOME/.config/nvim/init.vim"
-# alias cdn="cd $HOME/.config/nvim/ && ls"
 
 # (cat ~/.cache/wal/sequences &)

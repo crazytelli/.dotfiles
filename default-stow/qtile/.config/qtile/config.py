@@ -4,10 +4,12 @@ from libqtile import bar, layout, widget, qtile
 
 from libqtile.config import Click, Drag, Group, Key, KeyChord, Match, Screen
 from libqtile.lazy import lazy
-from libqtile.utils import guess_terminal
+# not in use currently as terminal is being defined explicitly
+# from libqtile.utils import guess_terminal 
 from libqtile import hook
 import subprocess
 import os
+import psutil # for swallow hook
 
 # Theme Choice
 from themes import dracula
@@ -59,14 +61,15 @@ keys = [
     Key( [mod, "shift" ], "k", lazy.layout.shuffle_down(), desc="Move window down"),
     Key( [mod, "shift" ], "j", lazy.layout.shuffle_up(), desc="Move window up") ,
     Key( [mod, "shift" ], "n", lazy.screen.next_group(skip_empty=True), desc="Cycle to next workspace "),
-    Key( [mod, "shift" ], "b", lazy.screen.prev_group(skip_empty=True), desc="Cycle to previous workspace ",),
+    Key( [mod, "shift" ], "p", lazy.screen.prev_group(skip_empty=True), desc="Cycle to previous workspace ",),
     Key( [mod, "shift"], "f", lazy.window.toggle_floating(), desc="Toggle floating",),
 
     # Tile layout specific cofiguration
-    #Key( [mod, "shift" ], "r", lazy.layout.reset().when(layout=['tile']), desc = "Increases the size of master when in Tile Layout"),
+    Key( [mod, "shift" ], "r", lazy.layout.reset().when(layout=['tile']), desc = "Increases the size of master when in Tile Layout"),
     Key( [mod, "shift" ], "i", lazy.layout.increase_ratio().when(layout=['tile']), desc = "Increases the ratio of master when in Tile Layout"),
     Key( [mod, "shift" ], "d", lazy.layout.decrease_ratio().when(layout=['tile']), desc = "Decreases the ratio of master when in Tile Layout"),
-    Key( [mod, "shift" ], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
+    # conflict with next workspace
+    #Key( [mod, "shift" ], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
 
     # Grow windows. If current window is on the edge of screen and direction
     # will be to screen edge - window would shrink.
@@ -112,40 +115,6 @@ keys = [
         "Return",
         lazy.spawn(f"{terminal} -e ranger"),
         desc="Launches Ranger file manager",
-    ),
-
-    # Key Chord application launcher with alt + k
-    
-    KeyChord(
-        ["mod1"],
-        "k",
-        [
-            Key(
-                [],
-                "b",
-                lazy.spawn("brave"),
-            ),
-            Key(
-                [],
-                "f",
-                lazy.spawn("firefox"),
-            ),
-            Key(
-                [],
-                "p",
-                lazy.spawn("thunar"),
-            ),
-            Key(
-                [],
-                "q",
-                lazy.spawn("qbittorrent"),
-            ),
-            Key(
-                [],
-                "o",
-                lazy.spawn("obsidian"),
-            ),
-        ],
     ),
 ]
 
@@ -323,6 +292,30 @@ auto_fullscreen = True
 focus_on_window_activation = "smart"
 reconfigure_screens = True
 
+
+# Window Swallow
+# Didn't actually managed to make it work
+# https://github.com/qtile/qtile/issues/1771
+# @hook.subscribe.client_new
+# def _swallow(window):
+#     pid = window.get_net_wm_pid()
+#     ppid = psutil.Process(pid).ppid()
+#     cpids = {c.window.get_net_wm_pid(): wid for wid, c in window.qtile.windows_map.items()}
+#     for i in range(5):
+#         if not ppid:
+#             return
+#         if ppid in cpids:
+#             parent = window.qtile.windows_map.get(cpids[ppid])
+#             parent.minimized = True
+#             window.parent = parent
+#             return
+#         ppid = psutil.Process(ppid).ppid()
+#
+# @hook.subscribe.client_killed
+# def _unswallow(window):
+#     if hasattr(window, 'parent'):
+#         window.parent.minimized = False
+#
 
 @hook.subscribe.startup_once
 def autostart():
