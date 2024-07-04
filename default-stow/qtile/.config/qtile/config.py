@@ -2,7 +2,7 @@ from typing import List  # noqa: F401
 
 from libqtile import bar, layout, widget, qtile
 
-from libqtile.config import Click, Drag, Group, Key, KeyChord, Match, Screen
+from libqtile.config import Click, Drag, Group, Key, ScratchPad, Match, Screen, DropDown
 from libqtile.lazy import lazy
 # not in use currently as terminal is being defined explicitly
 # from libqtile.utils import guess_terminal 
@@ -139,6 +139,40 @@ for i in groups:
             ),
         ]
     )
+
+# Scrachpads
+groups.append(
+    ScratchPad(
+        'scratchpad',
+        [
+            DropDown(
+                'term',
+                'kitty',
+                width=0.5,
+                height=0.5,
+                x=0.25,
+                y=0.25,
+                opacity=1
+            ),
+            DropDown(
+                'python',
+                [terminal, '-e', 'python'],
+                width=0.5,
+                height=0.5,
+                x=0.25,
+                y=0.25,
+                opacity=1
+            ),
+        ]
+    )
+)
+
+# Scrachpads key bindings
+keys.extend([
+    Key([mod], "s", lazy.group['scratchpad'].dropdown_toggle('term')),
+    Key([mod], "p", lazy.group['scratchpad'].dropdown_toggle('python')),
+])
+
 
 
 def init_layout_theme():
