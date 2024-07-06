@@ -1,12 +1,11 @@
 from typing import List  # noqa: F401
 
-from libqtile import bar, layout, widget, qtile
+from libqtile import bar, layout, widget, qtile, hook
 
 from libqtile.config import Click, Drag, Group, Key, ScratchPad, Match, Screen, DropDown
 from libqtile.lazy import lazy
 # not in use currently as terminal is being defined explicitly
 # from libqtile.utils import guess_terminal 
-from libqtile import hook
 import subprocess
 import os
 import psutil # for swallow hook
@@ -116,6 +115,12 @@ keys = [
         lazy.spawn(f"{terminal} -e ranger"),
         desc="Launches Ranger file manager",
     ),
+    Key(
+        [],
+        "Print",
+        lazy.spawn("flameshot full --path /home/victor/Pictures/screenshots/"),
+        desc="Screenshots and saves it directly into the folder specified",
+    ),
 ]
 
 # Groups config
@@ -163,6 +168,15 @@ groups.append(
                 y=0.25,
                 opacity=1
             ),
+            DropDown(
+                'bitwarden',
+                'bitwarden-desktop',
+                width=0.5,
+                height=0.5,
+                x=0.25,
+                y=0.25,
+                opacity=1
+            ),
         ]
     )
 )
@@ -171,6 +185,7 @@ groups.append(
 keys.extend([
     Key([mod], "s", lazy.group['scratchpad'].dropdown_toggle('term')),
     Key([mod], "p", lazy.group['scratchpad'].dropdown_toggle('python')),
+    Key([mod], "c", lazy.group['scratchpad'].dropdown_toggle('bitwarden')),
 ])
 
 
