@@ -35,6 +35,8 @@ colors = dracula.init_colors()
 mod = "mod4"
 # terminal = guess_terminal()
 terminal = "kitty"
+browser = "firefox"
+filemanager = "thunar"
 
 keys = [
     
@@ -109,6 +111,9 @@ keys = [
     ),
 
     # Launch apps key bindings:
+    Key( [mod], "e", lazy.spawn(filemanager)),
+    Key( [mod], "w", lazy.spawn(browser)),
+
     Key(
         [mod, "shift"],
         "Return",
@@ -193,7 +198,7 @@ keys.extend([
 def init_layout_theme():
     return {
         "border_width": 3,
-        "margin": 20,
+        "margin": 10,
         "border_focus": colors[1],
         "border_normal": colors[13],
     }
@@ -255,7 +260,6 @@ screens = [
                     font="Hack Nerd Font Bold",
                     fontsize=18
                     ),
-
                 widget.Spacer(length=20),
                 widget.WindowName(font="Hack Nerd Font Bold", fontsize=18),
                 widget.Chord(
@@ -274,6 +278,14 @@ screens = [
                     warn_color=colors[3],
                 ),
                 widget.Spacer(length=5),
+                widget.CPU(
+                    font="Hack Nerd Font Bold",
+                    fontsize=18,
+                    # background=colors[13],
+                    foreground=colors[11],
+                    format="CPU 󰻠:{freq_current}GHz {load_percent}%",
+                    padding_y=4,
+                ),
                 widget.Memory(
                     font="Hack Nerd Font Bold",
                     fontsize=18,
