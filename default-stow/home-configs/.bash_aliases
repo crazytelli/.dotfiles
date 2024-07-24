@@ -28,4 +28,7 @@ alias sxiv="nsxiv"
 alias cq="${EDITOR} $HOME/.config/qtile/config.py"
 alias dots="clear && cd $HOME/.dotfiles/default-stow && ls"
 
+# command line programs
+alias record-screen="ffmpeg -f x11grab -s 1920x1080 -i :0.0 "
+
 # (cat ~/.cache/wal/sequences &)
