@@ -182,6 +182,15 @@ groups.append(
                 y=0.25,
                 opacity=1
             ),
+            DropDown(
+                'volume',
+                'pavucontrol',
+                width=0.5,
+                height=0.5,
+                x=0.25,
+                y=0.25,
+                opacity=1
+            ),
         ]
     )
 )
@@ -191,6 +200,7 @@ keys.extend([
     Key([mod], "s", lazy.group['scratchpad'].dropdown_toggle('term')),
     Key([mod], "p", lazy.group['scratchpad'].dropdown_toggle('python')),
     Key([mod], "c", lazy.group['scratchpad'].dropdown_toggle('bitwarden')),
+    Key([mod], "v", lazy.group['scratchpad'].dropdown_toggle('volume')),
 ])
 
 

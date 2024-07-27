@@ -28,7 +28,8 @@ dunst &
 udiskie -ns &
 
 # Low battery notifier
-~/.config/qtile/scripts/check_battery.sh & disown
+# ~/.config/qtile/scripts/check_battery.sh & disown
+~/.config/qtile/xscreensaverstopper.sh & disown
 
 # start polkit agent from GNOME
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & disown 
