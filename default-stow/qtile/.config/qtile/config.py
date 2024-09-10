@@ -8,7 +8,7 @@ from libqtile.lazy import lazy
 # from libqtile.utils import guess_terminal 
 import subprocess
 import os
-import psutil # for swallow hook
+# import psutil # for swallow hook
 
 # Theme Choice
 from themes import dracula
@@ -208,7 +208,7 @@ keys.extend([
 def init_layout_theme():
     return {
         "border_width": 3,
-        "margin": 10,
+        "margin": 8,
         "border_focus": colors[1],
         "border_normal": colors[13],
     }
@@ -221,6 +221,7 @@ layout_theme = init_layout_theme()
 layouts = [
     #layout.Columns(**layout_theme),
     #layout.MonadTall(**layout_theme, align=layout.MonadTall._left),
+    #layout.Tile(**layout_theme, border_on_single=False, margin_on_single=False), 
     layout.Tile(**layout_theme), 
     layout.Max( border_width = 0, margin = 0), 
 ]
@@ -263,6 +264,7 @@ screens = [
                     inactive=colors[1],
                     background=colors[13],
                     hide_unused=True,
+                    disable_drag = True
                 ),
                 # Dmenu run prompt
                 widget.CurrentLayoutIcon(scale=0.8),
