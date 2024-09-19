@@ -44,7 +44,7 @@ keys = [
     Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
-    Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
+    Key([mod], "apostrophe", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "f", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen"),
     Key([mod], "d", lazy.spawn("rofi -show drun"), desc="spawn rofi"),
     #Key( [mod, "shift"], "d", lazy.spawncmd(), desc="Spawn a command using a dmenu prompt widget"),
@@ -61,8 +61,8 @@ keys = [
     Key( [mod, "shift" ], "l", lazy.layout.shuffle_right().when(layout=['columns']), desc="Move window to the right",),
     Key( [mod, "shift" ], "k", lazy.layout.shuffle_down(), desc="Move window down"),
     Key( [mod, "shift" ], "j", lazy.layout.shuffle_up(), desc="Move window up") ,
-    Key( [mod, "shift" ], "n", lazy.screen.next_group(skip_empty=True), desc="Cycle to next workspace "),
-    Key( [mod, "shift" ], "p", lazy.screen.prev_group(skip_empty=True), desc="Cycle to previous workspace ",),
+    Key( [mod], "Tab", lazy.screen.next_group(skip_empty=True), desc="Cycle to next workspace "),
+    Key( [mod, "shift"], "Tab", lazy.screen.prev_group(skip_empty=True), desc="Cycle to previous workspace "),
     Key( [mod, "shift"], "f", lazy.window.toggle_floating(), desc="Toggle floating",),
 
     # Tile layout specific cofiguration
@@ -272,8 +272,9 @@ screens = [
                     font="Hack Nerd Font Bold",
                     fontsize=18
                     ),
-                widget.Spacer(length=20),
-                widget.WindowName(font="Hack Nerd Font Bold", fontsize=18),
+                widget.Spacer(),
+                #widget.Spacer(length=20),
+                #widget.WindowName(font="Hack Nerd Font Bold", fontsize=18),
                 widget.Chord(
                     chords_colors={
                         "launch": (colors[3], colors[10]),
