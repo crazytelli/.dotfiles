@@ -113,12 +113,12 @@ keys = [
     # Launch apps key bindings:
     Key( [mod], "e", lazy.spawn(filemanager)),
     Key( [mod], "w", lazy.spawn(browser)),
+    Key( [mod], "o", lazy.spawn("obsidian")),
 
     Key(
         [mod, "shift"],
         "Return",
         lazy.spawn(f"{terminal} -e ranger"),
-        desc="Launches Ranger file manager",
     ),
     Key(
         [],
@@ -219,11 +219,11 @@ layout_theme = init_layout_theme()
 
 # Layouts config
 layouts = [
-    #layout.Columns(**layout_theme),
-    #layout.MonadTall(**layout_theme, align=layout.MonadTall._left),
-    #layout.Tile(**layout_theme, border_on_single=False, margin_on_single=False), 
-    layout.Tile(**layout_theme), 
-    layout.Max( border_width = 0, margin = 0), 
+        #layout.Columns(**layout_theme),
+        #layout.MonadTall(**layout_theme, align=layout.MonadTall._left),
+        #layout.Tile(**layout_theme), 
+    layout.Tile(**layout_theme, border_on_single=False, margin_on_single=False), 
+    layout.Max(border_width = 0, margin = 0), 
 ]
 
 widget_defaults = dict(
