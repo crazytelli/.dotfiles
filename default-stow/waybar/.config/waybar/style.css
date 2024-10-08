@@ -3,7 +3,7 @@
     border-radius: 0;
     font-family: "JetBrainsMono Nerd Font";
     font-weight: normal;
-    font-size: 16px;
+    font-size: 14px;
     min-height: 0;
 }
 
@@ -21,7 +21,7 @@ tooltip {
 }
 
 #workspaces button {
-    padding: 5px;
+    padding: 0px;
     color: #313244;
     margin-right: 5px;
 }
@@ -61,8 +61,8 @@ tooltip {
     background: #1e1e2e;
     opacity: 0.8;
     padding: 10px 10px;
-    margin: 3px 0px;
-    margin-top: 4px;
+    margin: 0px 0px;
+    margin-top: 5px;
     /* border: 1px solid #181825; */
 }
 
@@ -86,7 +86,7 @@ tooltip {
 #workspaces {
     background: #1e1e2e;
     border-radius: 10px;
-    margin-left: 10px;
+    margin-left: 5px;
     padding-right: 0px;
     padding-left: 5px;
 }
@@ -106,6 +106,7 @@ window#waybar.empty #window {
     color: #fab387;
     border-radius: 0px 10px 10px 0px;
     margin-left: 0px;
+    margin-right: 5px;
     border-right: 0px;
 }
 
