@@ -34,7 +34,8 @@ colors = dracula.init_colors()
 
 mod = "mod4"
 # terminal = guess_terminal()
-terminal = "kitty"
+# terminal = "kitty"
+terminal = "alacritty"
 browser = "firefox"
 filemanager = "thunar"
 
@@ -123,7 +124,7 @@ keys = [
     Key(
         [],
         "Print",
-        lazy.spawn("flameshot full --path /home/victor/Pictures/screenshots/"),
+        lazy.spawn("flameshot full --path /home/victor/Pictures/Screenshots/"),
         desc="Screenshots and saves it directly into the folder specified",
     ),
 ]
@@ -157,7 +158,7 @@ groups.append(
         [
             DropDown(
                 'term',
-                'kitty',
+                terminal,
                 width=0.5,
                 height=0.5,
                 x=0.25,
@@ -222,7 +223,7 @@ layouts = [
         #layout.Columns(**layout_theme),
         #layout.MonadTall(**layout_theme, align=layout.MonadTall._left),
         #layout.Tile(**layout_theme), 
-    layout.Tile(**layout_theme, border_on_single=False, margin_on_single=False), 
+    layout.Tile(**layout_theme, border_on_single=True, margin_on_single=True), 
     layout.Max(border_width = 0, margin = 0), 
 ]
 
@@ -247,6 +248,8 @@ floating_layout = layout.Floating(
         Match(title="pinentry"),  # GPG key password entry
         Match(title="win0"),  # Pycharm launching screen
         Match(title="Python Turtle Graphics"),  # Python Graphics Tk module
+        Match(wm_class="protonvpn-app"),  # proton vpn app
+        
     ],
 )
 
@@ -263,7 +266,7 @@ screens = [
                     active=colors[10],
                     inactive=colors[1],
                     background=colors[13],
-                    hide_unused=True,
+                    hide_unused=False,
                     disable_drag = True
                 ),
                 # Dmenu run prompt
@@ -296,7 +299,7 @@ screens = [
                     fontsize=18,
                     # background=colors[13],
                     foreground=colors[11],
-                    format="CPU 󰻠:{freq_current}GHz {load_percent}%",
+                    format="CPU: {freq_current}GHz {load_percent}%",
                     padding_y=4,
                 ),
                 widget.Memory(
