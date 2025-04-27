@@ -29,7 +29,10 @@ udiskie -ns &
 
 # Low battery notifier
 # ~/.config/qtile/scripts/check_battery.sh & disown
-~/.config/qtile/xscreensaverstopper.sh & disown
+~/.config/qtile/xscreensaverstopper.sh &
 
 # start polkit agent from GNOME
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & disown 
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
+gnome-keyring-daemon --start --components=secrets &
+
