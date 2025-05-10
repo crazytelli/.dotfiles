@@ -51,8 +51,8 @@ keys = [
     #Key( [mod, "shift"], "d", lazy.spawncmd(), desc="Spawn a command using a dmenu prompt widget"),
 
     # Switch between windows
-    Key( [mod], "h", lazy.layout.left(), desc="Move focus to left"),
-    Key( [mod], "l", lazy.layout.right(), desc="Move focus to right"),
+    #Key( [mod], "h", lazy.layout.left(), desc="Move focus to left"),
+    #Key( [mod], "l", lazy.layout.right(), desc="Move focus to right"),
     Key( [mod], "j", lazy.layout.down(), desc="Move focus down"),
     Key( [mod], "k", lazy.layout.up(), desc="Move focus up"),
     Key( [mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
@@ -80,18 +80,24 @@ keys = [
     Key( [mod, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
     Key( [mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
     Key( [mod], "b", lazy.hide_show_bar(), desc="Toggle hide/show the bar"),
+    # Key(
+    #     [mod],
+    #     "x",
+    #     lazy.spawn("slock"),
+    #     desc="Locks the screen with slock - suckless.org",
+    # ),
     Key(
         [mod],
         "x",
-        lazy.spawn("slock"),
-        desc="Locks the screen with slock - suckless.org",
+        lazy.spawn("archlinux-logout"),
+        desc="Locks the screen with archlinux-logout",
     ),
-    Key(
-        [mod, "shift"],
-        "z",
-        lazy.spawn("systemctl suspend"),
-        desc="Suspends the computer screen with slock and a systemd service at /etc/systemd/system/slock@.service",
-    ),
+    # Key(
+    #     [mod, "shift"],
+    #     "z",
+    #     lazy.spawn("systemctl suspend"),
+    #     desc="Suspends the computer screen with slock and a systemd service at /etc/systemd/system/slock@.service",
+    # ),
     # Fn Keys:
     Key([], "XF86AudioRaiseVolume", lazy.spawn("pamixer -i 5")),
     Key([], "XF86AudioLowerVolume", lazy.spawn("pamixer -d 5")),
@@ -223,7 +229,7 @@ layouts = [
         #layout.Columns(**layout_theme),
         #layout.MonadTall(**layout_theme, align=layout.MonadTall._left),
         #layout.Tile(**layout_theme), 
-    layout.Tile(**layout_theme, border_on_single=True, margin_on_single=True), 
+    layout.Tile(**layout_theme, border_on_single=True, margin_on_single=True, ratio=0.55), 
     layout.Max(border_width = 0, margin = 0), 
 ]
 
@@ -338,7 +344,7 @@ screens = [
             ],
             30,
             background=colors[13],
-            # opacity=0.75,
+            opacity=0.75,
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=[ "ff00ff", "000000", "ff00ff", "000000", ],  # Borders are magenta
         ),

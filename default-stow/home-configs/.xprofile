@@ -11,7 +11,7 @@ export QT_PLATFORM_PLUGIN=qt6ct
 export QT_QPA_PLATFORMTHEME=qt6ct
 export QT_STYLE_OVERRIDE=kvantum
 
-# export GTK_THEME=Dracula:dark
+export GTK_THEME=Arc-Dark:dark
 
 # env variable para aplicativos rodando em java (IRPF) renderizar as fontes corretamente.
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on'
