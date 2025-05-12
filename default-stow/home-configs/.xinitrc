@@ -35,35 +35,3 @@ fi
 [ -f /etc/xprofile ] && . /etc/xprofile
 [ -f ~/.xprofile ] && . ~/.xprofile
 
-
-# Start D-Bus (important for Polkit)
-if [ -z "$DBUS_SESSION_BUS_ADDRESS" ]; then
-    eval "$(dbus-launch --sh-syntax --exit-with-session)"
-fi
-
-#eval "$(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)"
-#export GNOME_KEYRING_CONTROL GNOME_KEYRING_PID SSH_AUTH_SOCK
-
-
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-gnome-keyring-daemon --start --components=secrets &
-
-
-# Launch the window manager through ly
-case "$XDG_SESSION_DESKTOP" in
-    dwm)
-	#dwm 2>/dev/null
-	#dwm
-	dwm >/dev/null 2>&1
-        ;;
-    chadwm)
-        exec chadwm
-        ;;
-    qtile)
-	qtile start
-        ;;
-    *)
-        exec xterm  # Fallback
-        ;;
-esac
-

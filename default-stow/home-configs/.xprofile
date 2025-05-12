@@ -1,11 +1,19 @@
 # Default programs:
 export EDITOR="nvim"
-export TERMINAL="kitty"
+export TERMINAL="alacritty"
 export BROWSER="firefox"
 export READER="zathura"
 export MANPAGER='nvim +Man!'
 export FILEMANAGER="thunar"
 export _JAVA_AWT_WM_NONREPARENTIN=1
+
+# XDG_BASE_DIRECTORY rules
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_CACHE_HOME=$HOME/.cache
+export XDG_DATA_HOME=$HOME/.local/share
+
+# zsh config dir
+# export ZDOTDIR=$HOME/.config/zsh
 
 export QT_PLATFORM_PLUGIN=qt6ct
 export QT_QPA_PLATFORMTHEME=qt6ct
@@ -19,5 +27,6 @@ export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on'
 # python scripts path for pylint, autopep8 etc
 export PATH=$HOME/.local/bin:$PATH
 
-setxkbmap -option 'caps:ctrl_modifier'
-xcape -e 'Caps_Lock=Escape'
+setxkbmap -option caps:escape
+# setxkbmap -option 'caps:ctrl_modifier'
+# xcape -e 'Caps_Lock=Escape'
