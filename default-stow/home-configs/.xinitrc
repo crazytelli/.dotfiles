@@ -35,3 +35,24 @@ fi
 [ -f /etc/xprofile ] && . /etc/xprofile
 [ -f ~/.xprofile ] && . ~/.xprofile
 
+
+# Update D-Bus environment
+#eval $(dbus-launch --sh-syntax)
+#export $(dbus-launch)
+#
+#dbus-update-activation-environment --all
+#
+## Start GNOME Keyring
+#eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg)
+#export SSH_AUTH_SOCK
+#
+## Start polkit agent
+#/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+#
+## Other startup apps
+##nm-applet &
+##picom &
+#
+## Start window manager
+#exec dwm
+#
