@@ -27,6 +27,7 @@ slstatus &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 gnome-keyring-daemon --start --components=secrets &
+# gnome-keyring-daemon --start --components=pkcs11,secrets,ssh >/dev/null 2>&1 &
 
 # Restarts dwm but not the stuff above
 # while true; do
