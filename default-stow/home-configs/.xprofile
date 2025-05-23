@@ -28,6 +28,6 @@ export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on'
 # python scripts path for pylint, autopep8 etc
 export PATH=$HOME/.local/bin:$PATH
 
-setxkbmap -option caps:escape
-# setxkbmap -option 'caps:ctrl_modifier'
-# xcape -e 'Caps_Lock=Escape'
+# Caps works as Control when pressed with another key and as Esc when pressed alone
+setxkbmap -option 'caps:ctrl_modifier'
+xcape -e 'Caps_Lock=Escape'

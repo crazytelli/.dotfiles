@@ -16,5 +16,8 @@ zstyle :compinstall filename '/home/victor/.zshrc'
 zstyle ':completion:*' menu select
 
 
+# Aliases
+alias ip="ip -c=always"
+
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
